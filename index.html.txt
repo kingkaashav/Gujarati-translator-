@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Gujarati Transliterator</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #eef6ff;
+    padding: 40px;
+  }
+  .box {
+    max-width: 700px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  }
+  textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+  }
+  button {
+    background: #0066cc;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  .output {
+    background: #f0f4ff;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    font-size: 1.2rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="box">
+  <h2>Gujarati Transliterator</h2>
+  <p>Type any English word or sentence. I will convert it to Roman Gujarati and Gujarati script.</p>
+
+  <textarea id="input" placeholder="Type English here..."></textarea>
+  <button onclick="translate()">Translate</button>
+
+  <h3>Roman Gujarati</h3>
+  <div id="roman" class="output"></div>
+
+  <h3>Gujarati Script</h3>
+  <div id="gujarati" class="output"></div>
+</div>
+
+<script>
+// Roman Gujarati transliteration
+function toRomanGujarati(text) {
+  return text
+    .toLowerCase()
+    .replace(/a/g, "a")
+    .replace(/b/g, "b")
+    .replace(/c/g, "ch")
+    .replace(/d/g, "d")
+    .replace(/e/g, "e")
+    .replace(/f/g, "f")
+    .replace(/g/g, "g")
+    .replace(/h/g, "h")
+    .replace(/i/g, "i")
+    .replace(/j/g, "j")
+    .replace(/k/g, "k")
+    .replace(/l/g, "l")
+    .replace(/m/g, "m")
+    .replace(/n/g, "n")
+    .replace(/o/g, "o")
+    .replace(/p/g, "p")
+    .replace(/q/g, "k")
+    .replace(/r/g, "r")
+    .replace(/s/g, "s")
+    .replace(/t/g, "t")
+    .replace(/u/g, "u")
+    .replace(/v/g, "v")
+    .replace(/w/g, "v")
+    .replace(/x/g, "ks")
+    .replace(/y/g, "y")
+    .replace(/z/g, "j");
+}
+
+// Gujarati script transliteration
+const gujaratiMap = {
+  a:"અ", b:"બ", c:"ચ", d:"દ", e:"એ", f:"ફ", g:"ગ", h:"હ",
+  i:"ઇ", j:"જ", k:"ક", l:"લ", m:"મ", n:"ન", o:"ઓ", p:"પ",
+  q:"ક", r:"ર", s:"સ", t:"ત", u:"ઉ", v:"વ", w:"વ", x:"ક્સ",
+  y:"ય", z:"ઝ", " ":" "
+};
+
+function toGujaratiScript(text) {
+  let out = "";
+  let t = text.toLowerCase();
+
+  for (let i = 0; i < t.length; i++) {
